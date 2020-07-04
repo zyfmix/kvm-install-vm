@@ -728,7 +728,7 @@ _EOF_
         --cpu=${FEATURE} \
         ${DISK_OPTION} \
         ${CI_ISO_OPTION} \
-        --network network=default \
+        --network=network=default \
         --os-type=${OS_TYPE} \
         --os-variant=${OS_VARIANT} \
         --noautoconsole \
