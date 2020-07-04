@@ -267,7 +267,7 @@ function delete_vm ()
     else
         output "Domain ${VMNAME} does not exist"
     fi
-    
+
     [[ -d ${VMDIR}/${VMNAME} ]] && DISKDIR=${VMDIR}/${VMNAME} || DISKDIR=${IMAGEDIR}/${VMNAME}
     [ -d $DISKDIR ] \
         && outputn "Deleting ${VMNAME} files" \
@@ -676,7 +676,7 @@ _EOF_
 
     # Create new storage pool for new VM
     run "Creating storage pool" \
-        virsh pool-create-as \
+       virsh pool-create-as \
         --name=${VMNAME} \
         --type=dir \
         --target=${VMDIR}/${VMNAME} \
@@ -728,7 +728,7 @@ _EOF_
         --cpu=${FEATURE} \
         ${DISK_OPTION} \
         ${CI_ISO_OPTION} \
-        ${NETWORK_OPTION} \
+        --network network=default \
         --os-type=${OS_TYPE} \
         --os-variant=${OS_VARIANT} \
         --noautoconsole \
